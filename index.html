@@ -114,11 +114,51 @@ textarea{width:100%;min-height:92px;padding:10px 12px;border-radius:10px;border:
 .ht .bad{color:var(--cr);font-weight:700}
 .task .tag{min-width:5.5em;justify-content:center}
 .linked{display:block;font-size:13px;color:var(--mut);margin-top:8px}
-.nav{display:flex;gap:4px;overflow-x:auto;background:var(--bg);border-bottom:1px solid var(--line);padding:6px max(5vw,16px);scrollbar-width:none}
-.nav a{flex:none;color:var(--ink);text-decoration:none;font-size:14px;font-weight:600;padding:10px 12px;border-radius:8px;min-height:44px;display:inline-flex;align-items:center}
-.nav a:hover,.nav a:focus-visible{background:var(--pan)}
-@media(min-width:900px){.nav{position:sticky;top:0;z-index:5}}
-html{scroll-padding-top:64px}
+.hdr{position:relative;z-index:25}
+@media(min-width:761px){.hdr{position:sticky;top:0}}
+html{scroll-padding-top:76px}
+#megaBtn{display:inline-flex;gap:8px}
+#megaBtn svg{width:18px;height:18px}
+.mega{position:absolute;left:0;right:0;top:100%;background:var(--bg);color:var(--ink);border-bottom:1px solid var(--line);box-shadow:0 18px 40px rgba(0,0,0,.18);padding:20px max(5vw,16px) 24px}
+.mgrid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.mgrid h3{font-size:14px;color:var(--mut);margin:0 0 6px;padding:0 12px}
+.mgrid a{display:block;padding:10px 12px;border-radius:10px;color:var(--ink);text-decoration:none}
+.mgrid a:hover,.mgrid a:focus-visible{background:var(--pan)}
+.mgrid a b{display:block;font-size:15px}
+.mgrid a span{display:block;font-size:13px;color:var(--mut);line-height:1.35}
+.bbar{display:none}
+.guide{counter-reset:g;list-style:none;margin:18px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:12px}
+.guide li{counter-increment:g;background:var(--pan);border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 60px;position:relative}
+.guide li::before{content:counter(g);position:absolute;left:16px;top:14px;width:32px;height:32px;border-radius:50%;border:5px solid var(--br);display:grid;place-items:center;font-weight:800;font-size:13px}
+.guide b{display:block;font-size:16px;margin-bottom:2px}
+.guide span{color:var(--mut);font-size:15px}
+.faq{margin-top:16px;display:grid;gap:8px;max-width:880px}
+.faq details{background:var(--bg);border:1px solid var(--line);border-radius:12px}
+.faq summary{cursor:pointer;font-weight:600;padding:14px 16px;min-height:44px;list-style-position:inside}
+.faq summary:focus-visible{outline:3px solid var(--br);outline-offset:2px;border-radius:12px}
+.faq p{margin:0;padding:0 16px 14px;color:var(--mut)}
+.foot{background:light-dark(#0d0f1a,#080a12);color:#e8eaf3;padding:clamp(28px,4vw,48px) max(5vw,16px) 24px}
+.fgrid{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:minmax(0,1.4fr) repeat(3,minmax(0,1fr));gap:28px}
+.foot h3{font-size:14px;margin:0 0 10px;color:#a9aec4}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+.foot a{color:#fff;text-decoration:none;display:inline-flex;min-height:36px;align-items:center}
+.foot a:hover{text-decoration:underline}
+.foot p{margin:6px 0;color:#c9cde0;font-size:15px}
+.fbrand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:24px;color:#fff}
+.fbase{max-width:1240px;margin:28px auto 0;padding-top:16px;border-top:1px solid rgba(255,255,255,.14);font-size:13px;color:#a9aec4;display:flex;flex-wrap:wrap;gap:8px 20px;justify-content:space-between}
+@media(max-width:900px){.fgrid{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}}
+@media(max-width:520px){.fgrid{grid-template-columns:minmax(0,1fr)}}
+@media(max-width:760px){
+#megaBtn{display:none}
+.mega{position:fixed;top:auto;bottom:calc(62px + env(safe-area-inset-bottom,0px));max-height:72vh;overflow:auto;border-top:1px solid var(--line);border-radius:18px 18px 0 0;box-shadow:0 -12px 40px rgba(0,0,0,.25)}
+.mgrid{grid-template-columns:minmax(0,1fr);gap:10px}
+.bbar{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));position:fixed;left:0;right:0;bottom:0;background:var(--bg);border-top:1px solid var(--line);padding-bottom:env(safe-area-inset-bottom,0px);z-index:26}
+.bbar a,.bbar button{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;min-height:62px;font-size:12px;font-weight:600;color:var(--mut);background:none;border:0;border-radius:0;padding:0;text-decoration:none}
+.bbar svg{width:22px;height:22px}
+.bbar [aria-current=true]{color:var(--br)}
+body{padding-bottom:calc(62px + env(safe-area-inset-bottom,0px))}
+.toast{bottom:calc(74px + env(safe-area-inset-bottom,0px))}
+}
 .welcome{margin:16px 0 4px;padding:16px 18px;border-radius:16px;background:color-mix(in srgb,var(--br) 10%,var(--bg));border:1px solid color-mix(in srgb,var(--br) 35%,var(--line))}
 .welcome h2{font-size:19px;margin:0 0 6px}
 .welcome ol{margin:0 0 4px;padding-left:1.3em}
@@ -187,9 +227,8 @@ footer{padding:20px max(5vw,16px);font-size:13px;color:var(--mut)}
 <body>
 <header class="hdr"><div class="wrap top">
   <div class="logo"><svg width="40" height="26" viewBox="0 0 40 26" aria-hidden="true"><circle cx="13" cy="13" r="9.5" fill="none" stroke="#fff" stroke-width="4"/><ellipse cx="29" cy="13" rx="8.5" ry="5.5" fill="none" stroke="#ffcd38" stroke-width="4"/></svg><span>catena</span><small id="tg"></small></div>
-  <div class="tools"><span class="sync" id="sync"><i></i><span></span></span><button type="button" id="mine" data-act="mine" hidden></button><label class="vh" for="vsel">Venture</label><select id="vsel"></select><button id="lang" type="button" data-act="lang"></button></div>
-</div></header>
-<nav class="nav" id="nav" aria-label="Sections"></nav>
+  <div class="tools"><span class="sync" id="sync"><i></i><span></span></span><button type="button" id="mine" data-act="mine" hidden></button><label class="vh" for="vsel">Venture</label><select id="vsel"></select><button id="lang" type="button" data-act="lang"></button><button id="megaBtn" type="button" data-act="mega" aria-expanded="false" aria-controls="mega"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" fill="none"/></svg><span></span></button></div>
+</div><div class="mega" id="mega" hidden></div></header>
 <main>
 <section class="band" id="s-chain"><div class="wrap">
   <h1 id="h1"></h1>
@@ -238,10 +277,13 @@ footer{padding:20px max(5vw,16px);font-size:13px;color:var(--mut)}
   <p class="msg" id="vmsg" aria-live="polite"></p>
   <p class="note" data-i="shareNote"></p>
 </div></section>
+<section class="band" id="s-guide"><div class="wrap"><h2 data-i="guideH"></h2><p class="sub" data-i="guideP"></p><ol class="guide" id="guide"></ol></div></section>
+<section class="band alt" id="s-faq"><div class="wrap"><h2 data-i="faqH"></h2><div class="faq" id="faq"></div></div></section>
 <section class="band brandband" id="s-brand"><div class="wrap" id="brand"></div></section>
 </main>
 <div class="toast" id="toast" role="status" aria-live="polite"><span></span><button type="button" data-act="undo" hidden></button></div>
-<footer><div class="wrap" data-i="foot"></div></footer>
+<footer class="foot" id="s-credits"></footer>
+<nav class="bbar" id="bbar" aria-label="Quick menu"></nav>
 <script>
 {
 const $=s=>document.querySelector(s);
@@ -304,6 +346,12 @@ sync:{local:'Local: this browser',conn:'Connecting…',live:'Team space: live',r
 mttr:'avg fix {x}',lateN:'{n} late',
 h1:(n,s,a)=>`${n}: chain at ${s}%, ${a} open ${a===1?'alert':'alerts'}`,h1e:n=>`${n}: add people to start the chain`,
 sample:'Orbita and Workworld are sample ventures. In the team space everyone with access sees the same data.',foot:'Catena Founder Chain OS. Working prototype for practice and planning.',
+menu:'Menu',guideH:'Guide',guideP:'Six steps from an empty chain to a weekly retro.',faqH:'Frequently asked questions',
+mg:[['Manage',[['s-chain','Chain','Links, events and chain strength'],['s-desk','Link desk','Pick your move on crises and opportunities'],['s-tasks','Action board','Close work with owners and dates'],['s-retro','Weekly retro','KPIs, focus list and AI retro']]],['Organise',[['s-team','People and hats','Assign departments to people'],['s-vents','Ventures and holding','Holding panel, shared resources, backup'],['s-brand','Brand kit','Name, colours, type and voice']]],['Resources',[['s-guide','Guide','Get started in six steps'],['s-faq','FAQ','Data, AI, XP and sharing'],['s-credits','Credits and contact','Who built Catena and how to reach them']]]],
+bb:['Chain','Desk','Actions','Retro','Menu'],
+gd:[['Set up your venture','Add a venture under Ventures and choose solo founder or core team.'],['Assign people and hats','Pick departments under People. The small links form on their own.'],['Pick yourself','Choose your name under Me. In the team space your account stays linked.'],['Handle events','Trigger an event or tap a link and pick your move within 30 seconds. Write real situations to the AI coach.'],['Close the actions','AI plans and playbooks land on the action board. Each one done strengthens its link.'],['Review the week','Open the weekly retro and the holding panel, then let AI write the retro.']],
+fq:[['What is Catena?','A tool for running ventures as chains: people are big links, shared departments are small links, and crises and opportunities appear on those links for the team to resolve.'],['Where is my data stored?','In the published Claude page, in a shared team space that everyone with access sees live. In the GitHub demo, only in your own browser. Use Download backup to keep a copy.'],['How do I add my co-founders?','Share the Claude page with them as Contributors, add them under People, and ask each one to pick themselves under Me.'],['Does the AI coach cost anything?','It uses the Claude usage of the person who runs it. The first use asks for permission. The rest of the app works without it.'],['Why do crises spread?','A crisis left open for two events weakens its neighbouring links. A shared-resource link carries a crisis to the other venture in the same department.'],['How is XP earned?','Best move 30 XP, plus a 10 XP speed bonus in the first 15 seconds. Workable move 10 XP, each action completed 5 XP.'],['Can a solo founder use it?','Yes. In solo mode you are the only big link and every department you run becomes a hat on your chain.'],['Is it open source?','Yes, under the MIT license. The code is on GitHub.']],
+crH:'Credits and contact',crRole:'Concept, design and development',crProd:'Product',crRes:'Resources',crTag:'Every founder is a link.',crLic:'Open source under the MIT license',
 nav:['Chain','Desk','Actions','Retro','People','Ventures','Brand'],wH:'Start in three taps',wS:['Tap a small link in the chain to open its desk.','Pick yourself under Me so your XP and actions are yours.','Write a real situation to the AI coach and pick your move.'],wB:'Got it',undo:'Undo',deleted:'Deleted',taskAdded:'Action added',noChain:'No links yet. Add hats or a second person under People.',
 mine:'Assigned to me: {n}',mineLate:' ({n} late)',fAll:'All',fMine:'Mine',linked:'Linked account: {x}',asg:'Action assigned to {o}: {x}',
 libH:'Scenario library',libP:'Save the good AI scenarios here. Drills then draw from them as well as the built-in set.',libSave:'Save to library',libSaved:'In the library',libNone:'No saved scenarios yet.',
@@ -334,6 +382,12 @@ sync:{local:'Yerel: bu tarayıcı',conn:'Bağlanıyor…',live:'Ekip alanı: can
 mttr:'ort. çözüm {x}',lateN:'{n} gecikmiş',
 h1:(n,s,a)=>`${n}: zincir gücü %${s}, ${a} açık uyarı`,h1e:n=>`${n}: zinciri başlatmak için kişi ekle`,
 sample:'Orbita ve Workworld örnek girişimlerdir. Ekip alanında erişimi olan herkes aynı veriyi görür.',foot:'Catena Girişimci Zinciri OS. Pratik ve planlama için çalışan prototip.',
+menu:'Menü',guideH:'Rehber',guideP:'Boş bir zincirden haftalık retroya altı adım.',faqH:'Sık sorulan sorular',
+mg:[['Yönet',[['s-chain','Zincir','Halkalar, olaylar ve zincir gücü'],['s-desk','Halka masası','Kriz ve fırsatlarda hamleni seç'],['s-tasks','Aksiyon panosu','İşleri sorumlu ve tarihle kapat'],['s-retro','Haftalık retro','Göstergeler, odak listesi ve AI retro']]],['Organize et',[['s-team','Kişiler ve şapkalar','Kişilere departman ata'],['s-vents','Girişimler ve holding','Holding paneli, ortak kaynaklar, yedek'],['s-brand','Marka kiti','İsim, renk, yazı tipi ve ses']]],['Kaynaklar',[['s-guide','Rehber','Altı adımda başla'],['s-faq','SSS','Veri, AI, XP ve paylaşım'],['s-credits','Künye ve iletişim','Catena\'yı kim yaptı, nasıl ulaşılır']]]],
+bb:['Zincir','Masa','Aksiyon','Retro','Menü'],
+gd:[['Girişimini kur','Girişimler bölümünden yeni girişim ekle; solo kurucu ya da çekirdek ekip seç.'],['Kişi ve şapka ata','Kişiler bölümünde departmanları seç. Küçük halkalar kendiliğinden oluşur.'],['Kendini seç','Ben kısmından adını seç. Ekip alanında hesabın kalıcı olarak bağlanır.'],['Olayları yönet','Olay tetikle ya da bir halkaya dokun, 30 saniye içinde hamleni seç. Gerçek durumları AI koçuna yaz.'],['Aksiyonları kapat','AI planları ve playbook\'lar aksiyon panosuna düşer. Her tamamlanan aksiyon halkasını güçlendirir.'],['Haftayı değerlendir','Haftalık retroyu ve holding panelini aç, ardından retroyu AI\'ya yazdır.']],
+fq:[['Catena nedir?','Girişimleri zincir olarak yönetme aracı: kişiler büyük halka, ortak departmanlar küçük halkadır; kriz ve fırsatlar bu halkalarda belirir ve ekip birlikte çözer.'],['Verilerim nerede saklanıyor?','Claude\'da yayınlanan sayfada, erişimi olan herkesin canlı gördüğü ortak bir ekip alanında. GitHub demosunda yalnızca kendi tarayıcında. Kopya için Yedeği indir\'i kullan.'],['Ortaklarımı nasıl eklerim?','Claude sayfasını onlarla Katkıda Bulunan olarak paylaş, Kişiler bölümüne ekle ve herkesin Ben kısmından kendini seçmesini iste.'],['AI koçu ücretli mi?','Onu çalıştıran kişinin Claude kullanım hakkından harcar. İlk kullanımda izin ister. Uygulamanın geri kalanı onsuz da çalışır.'],['Krizler neden yayılıyor?','İki olay boyunca açık kalan kriz komşu halkaları zayıflatır. Ortak kaynak halkası krizi aynı departmandan diğer girişime taşır.'],['XP nasıl kazanılır?','En iyi hamle 30 XP, ilk 15 saniyede yanıtlarsan 10 XP hız bonusu. İdare eden hamle 10 XP, tamamlanan her aksiyon 5 XP.'],['Solo kurucu kullanabilir mi?','Evet. Solo modda tek büyük halka sensin; yürüttüğün her departman zincirinde bir şapka olur.'],['Açık kaynak mı?','Evet, MIT lisansıyla. Kod GitHub\'da.']],
+crH:'Künye ve iletişim',crRole:'Fikir, tasarım ve geliştirme',crProd:'Ürün',crRes:'Kaynaklar',crTag:'Her girişimci bir halka.',crLic:'MIT lisanslı açık kaynak',
 nav:['Zincir','Masa','Aksiyonlar','Retro','Kişiler','Girişimler','Marka'],wH:'Üç dokunuşta başla',wS:['Zincirde bir küçük halkaya dokun, masası açılsın.','Ben kısmından kendini seç; XP ve aksiyonlar sana yazılsın.','Gerçek bir durumu AI koçuna yaz ve hamleni seç.'],wB:'Anladım',undo:'Geri al',deleted:'Silindi',taskAdded:'Aksiyon eklendi',noChain:'Henüz halka yok. Kişiler bölümünden şapka ya da ikinci bir kişi ekle.',
 mine:'Bana atanan: {n}',mineLate:' ({n} gecikmiş)',fAll:'Tümü',fMine:'Benim',linked:'Bağlı hesap: {x}',asg:'{o} kişisine aksiyon atandı: {x}',
 libH:'Senaryo kütüphanesi',libP:'İyi AI senaryolarını buraya kaydet. Tatbikatlar hazır sete ek olarak bunlardan da çeker.',libSave:'Kütüphaneye kaydet',libSaved:'Kütüphanede',libNone:'Henüz kayıtlı senaryo yok.',
@@ -596,7 +650,26 @@ function toast(m,undo){
   const el=$('#toast'),b=el.querySelector('button');el.firstChild.textContent=m;undoFn=undo||null;b.hidden=!undo;b.textContent=t('undo');
   el.classList.add('on');clearTimeout(toast.t);toast.t=setTimeout(()=>{el.classList.remove('on');undoFn=null},undo?6000:2200);
 }
-function renderNav(){const ids=['s-chain','s-desk','s-tasks','s-retro','s-team','s-vents','s-brand'];$('#nav').innerHTML=t('nav').map((n,i)=>`<a href="#${ids[i]}">${n}</a>`).join('')}
+const IC={chain:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="12" r="5" fill="none" stroke="currentColor" stroke-width="2.4"/><ellipse cx="17" cy="12" rx="4.5" ry="3" fill="none" stroke="currentColor" stroke-width="2.4"/></svg>',desk:'<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" fill="none" stroke="currentColor" stroke-width="2.4"/><circle cx="12" cy="12" r="3" fill="currentColor"/></svg>',act:'<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="4" width="16" height="16" rx="4" fill="none" stroke="currentColor" stroke-width="2.4"/><path d="M8 12.5l3 3 5-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg>',retro:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19V11M12 19V5M19 19v-6" stroke="currentColor" stroke-width="3" stroke-linecap="round"/></svg>',menu:'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/></svg>'};
+const REPO='https://github.com/izmgamestudios/catena-founder-chain',LI='https://www.linkedin.com/in/huseyin-bayer-izmgamestudios',MAIL='izmgamestudios@gmail.com',TEL='+905417709205',TELS='0541 770 92 05';
+let curSec='s-chain';
+function renderMenus(){
+  const mb=$('#megaBtn');mb.lastChild.textContent=t('menu');
+  $('#mega').innerHTML=`<div class="mgrid">${t('mg').map(([h,its])=>`<div><h3>${h}</h3>${its.map(([id,n,d])=>`<a href="#${id}"><b>${n}</b><span>${d}</span></a>`).join('')}</div>`).join('')}</div>`;
+  const B=t('bb'),ids=['s-chain','s-desk','s-tasks','s-retro'],ic=['chain','desk','act','retro'];
+  $('#bbar').innerHTML=ids.map((id,i)=>`<a href="#${id}" ${curSec===id?'aria-current="true"':''}>${IC[ic[i]]}<span>${B[i]}</span></a>`).join('')+`<button type="button" data-act="mega" aria-controls="mega" aria-expanded="${!$('#mega').hidden}">${IC.menu}<span>${B[4]}</span></button>`;
+  $('#guide').innerHTML=t('gd').map(([h,d])=>`<li><b>${h}</b><span>${d}</span></li>`).join('');
+  $('#faq').innerHTML=t('fq').map(([q,a])=>`<details><summary>${q}</summary><p>${a}${q.includes('GitHub')||a.includes('GitHub')?` <a href="${REPO}">GitHub</a>`:''}</p></details>`).join('');
+  const P=t('mg');
+  $('#s-credits').innerHTML=`<div class="fgrid"><div><div class="fbrand"><svg width="40" height="26" viewBox="0 0 40 26" aria-hidden="true"><circle cx="13" cy="13" r="9.5" fill="none" stroke="#fff" stroke-width="4"/><ellipse cx="29" cy="13" rx="8.5" ry="5.5" fill="none" stroke="#ffcd38" stroke-width="4"/></svg>catena</div><p>${t('crTag')}</p><p>${t('tg')}</p></div>
+  <div><h3>${t('crProd')}</h3><ul>${P[0][1].concat(P[1][1]).map(([id,n])=>`<li><a href="#${id}">${n}</a></li>`).join('')}</ul></div>
+  <div><h3>${t('crRes')}</h3><ul>${P[2][1].slice(0,2).map(([id,n])=>`<li><a href="#${id}">${n}</a></li>`).join('')}<li><a href="${REPO}">GitHub</a></li><li><a href="${REPO}/blob/main/LICENSE">MIT License</a></li></ul></div>
+  <div><h3>${t('crH')}</h3><p><b style="color:#fff">Hüseyin Bayer</b><br>${t('crRole')}<br>IZM Game Studios</p><ul><li><a href="${LI}">LinkedIn</a></li><li><a href="mailto:${MAIL}">${MAIL}</a></li><li><a href="tel:${TEL}">${TELS}</a></li></ul></div></div>
+  <div class="fbase"><span>© 2026 IZM Game Studios. ${t('crLic')}.</span><span>${t('foot')}</span></div>`;
+}
+function setMega(open){const m=$('#mega');m.hidden=!open;document.querySelectorAll('[data-act=mega]').forEach(b=>b.setAttribute('aria-expanded',String(open)))}
+const secObs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){curSec=e.target.id;document.querySelectorAll('#bbar a').forEach(a=>a.toggleAttribute('aria-current',a.getAttribute('href')==='#'+curSec));document.querySelectorAll('#bbar a[aria-current]').forEach(a=>a.setAttribute('aria-current','true'))}})},{rootMargin:'-40% 0px -55% 0px'});
+['s-chain','s-desk','s-tasks','s-retro','s-team','s-vents','s-guide','s-faq','s-brand'].forEach(id=>{const el=document.getElementById(id);if(el)secObs.observe(el)});
 function renderWelcome(){
   let seen=renderWelcome.done===true;try{seen=seen||localStorage.getItem('catena.welcome')==='1'}catch(e){}
   $('#welcome').innerHTML=seen||!cur()?'':`<div class="welcome"><h2>${t('wH')}</h2><ol>${t('wS').map(x=>`<li>${x}</li>`).join('')}</ol><div class="row" style="margin-top:8px"><button class="pri" type="button" data-act="wOk">${t('wB')}</button></div></div>`;
@@ -818,7 +891,7 @@ function i18n(){
   $('#lang').textContent=L()==='tr'?'EN':'TR';
   $('#lang').setAttribute('aria-label',L()==='tr'?'Switch to English':'Türkçeye geç');
   document.querySelectorAll('[data-i]').forEach(e=>e.textContent=t(e.dataset.i));
-  renderNav();renderWelcome();
+  renderMenus();renderWelcome();
   $('#vname').placeholder=t('newV');$('#tText').placeholder=t('tText');
   setSync();
 }
@@ -838,10 +911,13 @@ function renderAll(){i18n();renderBrand();render()}
 document.addEventListener('click',e=>{
   const g=e.target.closest('#chain [data-k],#chain [data-m]');
   if(g){if(g.dataset.k)selectLink(g.dataset.k);else{sel={m:+g.dataset.m};renderHero();drawChain();renderDesk()}if(innerWidth<860)$('#desk').scrollIntoView({behavior:'smooth',block:'start'});return}
+  if(e.target.closest('#mega a')){setMega(false)}
+  else if(!$('#mega').hidden&&!e.target.closest('#mega')&&!e.target.closest('[data-act=mega]'))setMega(false);
   const b=e.target.closest('[data-act]');if(!b)return;
   const v=cur(),a=b.dataset.act;
   if(a!=='delV')delArm=null;
   if(a==='lang'){S.lang=L()==='tr'?'en':'tr';saveUi();renderAll();return}
+  if(a==='mega'){setMega($('#mega').hidden);return}
   if(a==='backup'){backup();return}
   if(a==='wOk'){renderWelcome.done=true;try{localStorage.setItem('catena.welcome','1')}catch(e){}renderWelcome();return}
   if(a==='undo'){const f=undoFn;undoFn=null;$('#toast').classList.remove('on');if(f)f();return}
@@ -868,7 +944,8 @@ document.addEventListener('click',e=>{
   else if(a==='rmMem'){const id=v.members[+b.dataset.mi]?.id;v.members.splice(+b.dataset.mi,1);v.tasks.forEach(x=>{if(x.owner===id)x.owner=v.members[0].id});sel=null;build(v);save(v);render()}
   else if(a==='chip'){const m=v.members[+b.dataset.mi],d=b.dataset.d;m.depts=m.depts.includes(d)?m.depts.filter(x=>x!==d):[...m.depts,d];build(v);save(v);render()}
 });
-document.addEventListener('keydown',e=>{const g=e.target.closest&&e.target.closest('#chain [data-k],#chain [data-m]');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();g.dispatchEvent(new MouseEvent('click',{bubbles:true}))}});
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!$('#mega').hidden){setMega(false);$('#megaBtn').focus()}
+  const g=e.target.closest&&e.target.closest('#chain [data-k],#chain [data-m]');if(g&&(e.key==='Enter'||e.key===' ')){e.preventDefault();g.dispatchEvent(new MouseEvent('click',{bubbles:true}))}});
 document.addEventListener('input',e=>{if(e.target.id==='aiIn')aiText=e.target.value});
 document.addEventListener('change',e=>{
   const v=cur();
