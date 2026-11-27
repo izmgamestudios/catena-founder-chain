@@ -4,6 +4,8 @@
 
 Turkish sub-brand: *Girişimci Zinciri*.
 
+**Live demo (local mode):** https://izmgamestudios.github.io/catena-founder-chain/
+
 ## How it works
 
 | Concept | Meaning |
